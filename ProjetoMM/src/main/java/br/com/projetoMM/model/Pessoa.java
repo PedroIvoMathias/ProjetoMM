@@ -16,7 +16,9 @@ import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 @Entity // tratar essa classe como entidade e o JPA pode gerenciar ela
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.JOINED)// permite dizer qual estratégia vou querer na gravação dos dados no banco de dados sobre a herança.
+//Inheritanve = single é o que coloca todos os campos das subclasses em uma só, o que não é legal de se fazer.
+// o ideal é colocar o .JOINED que seprara tudo no seu devido lugar, criando as tabelas das entidades separadas corretamente.
 public abstract class Pessoa implements Serializable {
     private static  final long serialVersionUID = 1L;
     
