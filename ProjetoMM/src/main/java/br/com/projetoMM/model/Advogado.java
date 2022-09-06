@@ -9,6 +9,7 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class Advogado extends Pessoa{
+    
     @Column(nullable = false, length = 20, updatable = false)
     private String CarteiraOAB;
     
@@ -16,7 +17,7 @@ public class Advogado extends Pessoa{
     private Float Salario, Bonus;
     
     @JsonManagedReference
-    @ManyToMany
+    @ManyToMany//dono
     private List<Cliente> clientes = new ArrayList<>();
 
     public Advogado() {

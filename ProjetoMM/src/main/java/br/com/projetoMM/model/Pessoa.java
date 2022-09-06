@@ -11,8 +11,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 
 @Entity // tratar essa classe como entidade e o JPA pode gerenciar ela
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Pessoa implements Serializable {
     private static  final long serialVersionUID = 1L;
     
@@ -26,7 +30,8 @@ public abstract class Pessoa implements Serializable {
     @Embedded
     private Endereco endereco;
     
-    @ElementCollection(fetch = FetchType.EAGER)
+    //@ElementCollection(fetch = FetchType.EAGER)
+    @OneToMany
     private List<Processo> processos = new ArrayList<>();
 
    
