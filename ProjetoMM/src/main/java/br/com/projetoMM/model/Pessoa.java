@@ -14,6 +14,11 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.Length;
+
 
 @Entity // tratar essa classe como entidade e o JPA pode gerenciar ela
 @Inheritance(strategy = InheritanceType.JOINED)// permite dizer qual estratégia vou querer na gravação dos dados no banco de dados sobre a herança.
@@ -27,13 +32,18 @@ public abstract class Pessoa implements Serializable {
     private long ID;
     
     @Column(nullable = false, length = 150)// nullabe = pode ser nulo?(not null)
+    @NotBlank(message = "Dados necessáiros!")
+    @Length(max = 150, message = "Necessário no máximo 150 caracteres.")
     private String Nome, Email, Telefone;
     
     @Embedded
+    @NotNull(message = "Endereço obrigatório.")
+    @Valid
     private Endereco endereco;
     
     //@ElementCollection(fetch = FetchType.EAGER)
     @OneToMany
+    @Valid
     private List<Processo> processos = new ArrayList<>();
 
    

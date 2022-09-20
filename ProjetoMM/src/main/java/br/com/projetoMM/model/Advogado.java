@@ -6,11 +6,14 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Advogado extends Pessoa{
     
     @Column(nullable = false, length = 20, updatable = false)
+    @NotBlank(message = "Carteira OAB obrigatória.")
     private String CarteiraOAB;
     
     @Column(nullable = false)
@@ -18,6 +21,7 @@ public class Advogado extends Pessoa{
     
     @JsonManagedReference
     @ManyToMany//dono
+    @Valid
     private List<Cliente> clientes = new ArrayList<>();
 
     public Advogado() {

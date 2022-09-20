@@ -6,19 +6,25 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.validation.Valid;
+import org.hibernate.validator.constraints.br.CPF;
 
 
 @Entity// não preciso definir o ID pq ele já erda da classe pessoa
 public class Cliente extends Pessoa {
     
     @Column(nullable = false , length = 15, updatable = false)
+    @CPF(message = "CPF Inválido.")
     private String CPF;
     
     @JsonBackReference
     @ManyToMany(mappedBy = "clientes")
+    @Valid
     private List<Advogado> advogados = new ArrayList<>();
 
 
+    public Cliente() {
+    }
     public Cliente(String CPF, long ID, String Nome, String Email, String Telefone) {
         super(ID, Nome, Email, Telefone);
         this.CPF = CPF;

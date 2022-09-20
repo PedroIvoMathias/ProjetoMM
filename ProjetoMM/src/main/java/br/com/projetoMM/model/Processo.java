@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Processo implements Serializable {
@@ -16,9 +18,12 @@ public class Processo implements Serializable {
     private long NProcesso;
     
     @Column(nullable = false)
+    //@NotBlank(message = "Dado obrigatorio")
     private Float valor;
     
     @Column(length = 300, nullable = false)
+    @NotBlank(message = "Dado obrigatório.")
+    @Length(max = 300, message = "No máximo 300 caracteres")
     private String TipoProcesso, Descricao;
 
     public Processo() {

@@ -4,15 +4,26 @@ import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
 
 @Embeddable
 public class Endereco implements Serializable {
     private static  final long serialVersionUID = 1L;
     
     @Column(nullable = false, length = 70)
-    private String Rua, Bairro, Cidade, CEP;
+    @NotBlank(message = "Dado obrigatório.")
+    @Length(max = 70, message = "Dado deve ter no máximo 70 caracteres")
+    private String Rua, Bairro, Cidade;
+    
+    @Column(nullable = false, length = 9)
+    @NotBlank(message = "Dado obrigatório.")
+    @Length(max = 9,min = 9, message = "Dado deve ter exatamente 9 caracteres (Ex: 99999-999).")
+    private String CEP;
     
     @Column(nullable = false)
+    @Digits (integer = 4, fraction = 0, message = "Número deve ser inteiro e ter até 4 digitos.")
     private int Numero;
 
     public Endereco() {
