@@ -19,8 +19,8 @@ public class Advogado extends Pessoa{
     @Column(nullable = false)
     private Float Salario, Bonus;
     
-    @JsonManagedReference
-    @ManyToMany//dono
+    //@JsonManagedReference
+    @ManyToMany//dono, na verdade não acho que seja 100% dono, vou ter que ver depois novamente essa notação.
     @Valid
     private List<Cliente> clientes = new ArrayList<>();
 

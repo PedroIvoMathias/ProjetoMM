@@ -1,6 +1,7 @@
 package br.com.projetoMM.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+//import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
@@ -17,7 +18,8 @@ public class Cliente extends Pessoa {
     @CPF(message = "CPF Inválido.")
     private String CPF;
     
-    @JsonBackReference
+    //@JsonBackReference da ruim pra mapear listas.
+    @JsonIgnore
     @ManyToMany(mappedBy = "clientes")
     @Valid
     private List<Advogado> advogados = new ArrayList<>();

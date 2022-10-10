@@ -15,7 +15,7 @@ public class Processo implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long NProcesso;
+    private long id;
     
     @Column(nullable = false)
     //@NotBlank(message = "Dado obrigatorio")
@@ -25,24 +25,24 @@ public class Processo implements Serializable {
     @NotBlank(message = "Dado obrigatório.")
     @Length(max = 300, message = "No máximo 300 caracteres")
     private String TipoProcesso, Descricao;
-
+    
     public Processo() {
     }
     
 
-    public Processo(long NProcesso, Float valor, String TipoProcesso, String Descricao) {
-        this.NProcesso = NProcesso;
+    public Processo(long id, Float valor, String TipoProcesso, String Descricao) {
+        this.id = id;
         this.valor = valor;
         this.TipoProcesso = TipoProcesso;
         this.Descricao = Descricao;
     }
 
-    public long getNProcesso() {
-        return NProcesso;
+    public long getid() {
+        return id;
     }
 
-    public void setNProcesso(long NProcesso) {
-        this.NProcesso = NProcesso;
+    public void setid(long id) {
+        this.id = id;
     }
 
     public Float getValor() {
@@ -72,7 +72,7 @@ public class Processo implements Serializable {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 13 * hash + (int) (this.NProcesso ^ (this.NProcesso >>> 32));
+        hash = 13 * hash + (int) (this.id ^ (this.id >>> 32));
         return hash;
     }
 
@@ -88,7 +88,7 @@ public class Processo implements Serializable {
             return false;
         }
         final Processo other = (Processo) obj;
-        return this.NProcesso == other.NProcesso;
+        return this.id == other.id;
     }
     
     

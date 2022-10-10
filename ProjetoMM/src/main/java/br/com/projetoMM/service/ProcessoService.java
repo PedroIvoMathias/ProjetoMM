@@ -44,7 +44,7 @@ public class ProcessoService {
     }
     
     public Processo update(Processo p){
-        Processo obj = findById(p.getNProcesso());
+        Processo obj = findById(p.getid());
          
         try{
             return repo.save(p);

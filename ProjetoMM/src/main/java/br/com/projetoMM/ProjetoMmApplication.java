@@ -130,7 +130,7 @@ public class ProjetoMmApplication implements CommandLineRunner{
         
         adv.adicionar(processo);
         advogadoRepo.save(adv);
-        
+                
         //c1.adicionar(processo);
         //clienteRepo.save(c1);
         

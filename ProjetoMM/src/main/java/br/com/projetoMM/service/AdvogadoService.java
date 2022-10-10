@@ -3,7 +3,6 @@ package br.com.projetoMM.service;
 import br.com.projetoMM.model.Advogado;
 import br.com.projetoMM.model.Cliente;
 import br.com.projetoMM.repository.AdvogadoRepository;
-
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
