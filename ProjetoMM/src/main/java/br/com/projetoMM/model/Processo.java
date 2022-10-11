@@ -25,7 +25,7 @@ public class Processo implements Serializable {
     @NotBlank(message = "Dado obrigatório.")
     @Length(max = 300, message = "No máximo 300 caracteres")
     private String TipoProcesso, Descricao;
-    
+        
     public Processo() {
     }
     
@@ -68,7 +68,7 @@ public class Processo implements Serializable {
     public void setDescricao(String Descricao) {
         this.Descricao = Descricao;
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 3;

@@ -42,9 +42,10 @@ public abstract class Pessoa implements Serializable {
     private Endereco endereco;
     
     //@ElementCollection(fetch = FetchType.EAGER)
-    @OneToMany
-    @Valid
-    private List<Processo> processos = new ArrayList<>();
+    //testar botando essa relação em adovgado, então vou levar isso pra lá e as coisas de adicionar lista também.
+//    @OneToMany
+//    @Valid
+//    private List<Processo> processos = new ArrayList<>();
 
    
 
@@ -99,17 +100,18 @@ public abstract class Pessoa implements Serializable {
         this.endereco = endereco;
     }
     
-    public List<Processo> getProcessos() {
-        return processos;
-    }
-    
-    public void adicionar (Processo processo){
-        processos.add(processo);
-    }
-    
-    public void remove (Processo processo){
-        processos.remove(processo);
-    }
+    //Esses três taambém vou levar, que são os que me referi lá em cima.
+//    public List<Processo> getProcessos() {
+//        return processos;
+//    }
+//    
+//    public void adicionar (Processo processo){
+//        processos.add(processo);
+//    }
+//    
+//    public void remove (Processo processo){
+//        processos.remove(processo);
+//    }
     
     @Override
     public int hashCode() {

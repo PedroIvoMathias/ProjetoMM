@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
@@ -23,6 +24,11 @@ public class Advogado extends Pessoa{
     @ManyToMany//dono, na verdade não acho que seja 100% dono, vou ter que ver depois novamente essa notação.
     @Valid
     private List<Cliente> clientes = new ArrayList<>();
+    
+    //foi o que eu coloquei para testar os processos nessa classe no lugar da classe Pessoa.
+    @OneToMany
+    @Valid
+    private List<Processo> processos = new ArrayList<>();
 
     public Advogado() {
     }
@@ -71,6 +77,16 @@ public class Advogado extends Pessoa{
         clientes.remove(cliente);
     }
     
+    public List<Processo> getProcessos() {
+        return processos;
+    }
     
+    public void adicionar (Processo processo){
+        processos.add(processo);
+    }
+    
+    public void remove (Processo processo){
+        processos.remove(processo);
+    }
     
 }
