@@ -1,4 +1,4 @@
-package br.com.projetoMM.model;
+ package br.com.projetoMM.model;
 
 //import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
